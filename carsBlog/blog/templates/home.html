@@ -1,8 +1,12 @@
-<h1>Home</h1>
+<h1>This is an amazing blog about cars</h1>
+<h3>I've written {{posts.count}} post{{posts.count|pluralize}}</h3>
+
 
 
 {% for post in posts %}
-<a href="{% url 'detail' post.id %}"><h2>{{post.title}}</h2></a>
-<h6>{{post.date}}</h6>
-<p>{{post.text}}</p>
+<a href="{% url 'detail' post.id %}">
+    <h2>{{post.title}}</h2>
+</a>
+<h6>{{post.date|date:"j E, Y"}}</h6>
+<p>{{post.text|truncatewords:10}}</p>
 {% endfor %}
