@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=250)
+    date = models.DateField()
+    text = models.TextField()
+
+    def __str__(self):
+        return f'{self.date} | {self.title}'
